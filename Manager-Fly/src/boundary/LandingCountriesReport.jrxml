@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LandingCountriesReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a17e9d30-3009-45ff-9118-eacbf9cc72ed">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ManagerFlyDB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tbl_landing_report.Country, tbl_landing_report.Percentage
+FROM tbl_landing_report
+ORDER BY tbl_landing_report.Percentage DESC;
+]]>
+	</queryString>
+	<field name="Country" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Country"/>
+		<property name="com.jaspersoft.studio.field.label" value="Country"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_landing_report"/>
+	</field>
+	<field name="Percentage" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Percentage"/>
+		<property name="com.jaspersoft.studio.field.label" value="Percentage"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_landing_report"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="52" y="0" width="450" height="78" forecolor="#6C5CAD" backcolor="#D1E0E6" uuid="084b0288-3277-4c28-b439-4e405c97e5f1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3973fab8-0810-41b7-bf72-b6c8c8877b6b"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="2.0"/>
+				</box>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[         Landing Percentage Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="278" height="30" uuid="9d25b84a-7b07-44a1-8e82-55f233d89320">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3973fab8-0810-41b7-bf72-b6c8c8877b6b"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5" lineColor="#B32E56"/>
+				</box>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="278" y="0" width="277" height="30" uuid="468a6529-3ad5-415f-b22e-83221d54d3c6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2afc36db-365f-4444-85a1-42f5cb85d876"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5" lineColor="#B32E56"/>
+				</box>
+				<text><![CDATA[Percentage]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="278" height="30" forecolor="#1E27A6" backcolor="#8DC7C2" uuid="223e81e1-830a-43a6-b54a-6eb663af32b9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3973fab8-0810-41b7-bf72-b6c8c8877b6b"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#924BB8"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Country}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="278" y="0" width="277" height="30" forecolor="#1E27A6" backcolor="#8DC7C2" uuid="285c68ce-00ed-4576-8b7c-703822f3731f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2afc36db-365f-4444-85a1-42f5cb85d876"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#924BB8"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{Percentage}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

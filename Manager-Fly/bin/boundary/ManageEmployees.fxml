@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="830.0" style="-fx-background-color: #B0C4DE;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ManageEmployees">
+   <children>
+      <Button layoutX="139.0" layoutY="49.0" mnemonicParsing="false" onAction="#showFaPane" text="Flight Attendants" />
+      <AnchorPane fx:id="faPane" layoutX="139.0" layoutY="90.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#showAddPaneFA" text="Add" />
+            <Button layoutX="81.0" mnemonicParsing="false" onAction="#showFaList" text="Edit" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addPane" layoutX="34.0" layoutY="177.0" prefHeight="327.0" prefWidth="584.0">
+         <children>
+            <TextField fx:id="idTxt" layoutX="113.0" />
+            <TextField fx:id="firstNameTxt" layoutX="113.0" layoutY="35.0" />
+            <TextField fx:id="lastNameTxt" layoutX="113.0" layoutY="72.0" />
+            <DatePicker fx:id="startWorkDateTxt" layoutX="113.0" layoutY="130.0" />
+            <DatePicker fx:id="endWorkDateTxt" layoutX="113.0" layoutY="177.0" />
+            <Label layoutX="27.0" layoutY="4.0" text="ID:" />
+            <Label layoutX="27.0" layoutY="39.0" text="First name:" />
+            <Label layoutX="27.0" layoutY="76.0" text="Last name:" />
+            <Label layoutY="134.0" text="Start work date:" />
+            <Label layoutY="181.0" text="End Work Date:" />
+            <Button fx:id="submitAddFABtn" layoutX="29.0" layoutY="269.0" mnemonicParsing="false" onAction="#addFlightAttendant" text="Submit Add FA" />
+            <Label fx:id="licenceNumLabel" layoutY="214.0" text="Licence Number:" />
+            <Label fx:id="licenceDateLabel" layoutY="242.0" text="Licence issue date:" />
+            <TextField fx:id="licenceNumTxt" layoutX="113.0" layoutY="210.0" />
+            <DatePicker fx:id="licenceDateTxt" layoutX="113.0" layoutY="238.0" />
+            <Button fx:id="submitEditFABtn" layoutX="177.0" layoutY="269.0" mnemonicParsing="false" onAction="#submitEditFlightAttendant" text="Submit Edit FA" />
+            <Button fx:id="submitAddGABtn" layoutX="28.0" layoutY="284.0" mnemonicParsing="false" onAction="#addGroundAttendant" text="Submit Add GA" />
+            <Button fx:id="submitEditGABtn" layoutX="177.0" layoutY="284.0" mnemonicParsing="false" onAction="#submitEditGroundAttendant" text="Submit Edit GA" />
+            <Button fx:id="submitAddPilotBtn" layoutX="19.0" layoutY="284.0" mnemonicParsing="false" onAction="#addPilot" text="Submit Add Pilot" />
+            <Button fx:id="submitEditPilotBtn" layoutX="170.0" layoutY="284.0" mnemonicParsing="false" onAction="#submitEditPilot" text="Submit Edit Pilot" />
+         </children>
+      </AnchorPane>
+      <ComboBox fx:id="chooseFA" layoutX="123.0" layoutY="130.0" onAction="#editFlightAttendant" prefHeight="29.0" prefWidth="190.0" promptText="Choose flight attendant" />
+      <Button layoutX="393.0" layoutY="49.0" mnemonicParsing="false" onAction="#showGaPane" text="Ground Attendants" />
+      <AnchorPane fx:id="gaPane" layoutX="401.0" layoutY="84.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#showAddPaneGA" text="Add" />
+            <Button layoutX="81.0" mnemonicParsing="false" onAction="#showGaList" text="Edit" />
+         </children>
+      </AnchorPane>
+      <ComboBox fx:id="chooseGA" layoutX="370.0" layoutY="130.0" onAction="#editGroundAttendant" prefHeight="29.0" prefWidth="202.0" promptText="Choose ground attendant" />
+      <AnchorPane fx:id="pilotPane" layoutX="623.0" layoutY="84.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#showAddPanePilot" text="Add" />
+            <Button layoutX="81.0" mnemonicParsing="false" onAction="#showPilotList" text="Edit" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="634.0" layoutY="49.0" mnemonicParsing="false" onAction="#showPilotPane" prefHeight="30.0" prefWidth="115.0" text="Pilots" />
+      <ComboBox fx:id="choosePilot" layoutX="601.0" layoutY="130.0" onAction="#editPilot" prefHeight="29.0" prefWidth="178.0" promptText="Choose pilot" />
+      <Button layoutX="14.0" layoutY="17.0" mnemonicParsing="false" onAction="#switchTo_EmployeesManagerScreen" text="Back">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="313.0" layoutY="3.0" text="Manage Employees" underline="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

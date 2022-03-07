@@ -1,0 +1,72 @@
+{
+	"flights":[
+		{
+			"flightNumber":"AS12J",
+			"departureDate":"2021-12-22 16:00:00.000000",
+			"departureAirportId":"ATH",
+			"landingDate":"2021-12-22 20:00:00.000000",
+			"landingAirportId":"AWS",
+			"flightStatus":"OnTime",
+			"tailNumber":"bwb1"
+		},
+		{
+			"flightNumber":"ER432",
+			"departureDate":"2021-11-24 01:00:00.000000",
+			"departureAirportId":"AWS",
+			"landingDate":"2021-11-24 05:30:00.000000",
+			"landingAirportId":"ISL",
+			"flightStatus":"Cancelled",
+			"tailNumber":"yuy5"
+		},
+		{
+			"flightNumber":"QW32R",
+			"departureDate":"2021-12-21 09:00:00.000000",
+			"departureAirportId":"ISL",
+			"landingDate":"2021-12-21 19:00:00.000000",
+			"landingAirportId":"UDF",
+			"flightStatus":"Delayed",
+			"tailNumber":"wew3"
+		},
+		{
+			"flightNumber":"ZX12J",
+			"departureDate":"2021-12-20 16:00:00.000000",
+			"departureAirportId":"ISL",
+			"landingDate":"2021-12-20 19:00:00.000000",
+			"landingAirportId":"AWS",
+			"flightStatus":"Cancelled",
+			"tailNumber":"cvc2"
+		}
+	],
+	"seats":[
+		{
+			"seatRow":"1",
+			"seatNumber":"1",
+			"tailNumber":"bwb1",
+			"seatClass":"Economy"
+		},
+		{
+			"seatRow":"1",
+			"seatNumber":"1",
+			"tailNumber":"yuy5",
+			"seatClass":"Business"
+		},
+		{
+			"seatRow":"1",
+			"seatNumber":"2",
+			"tailNumber":"bwb1",
+			"seatClass":"FirstClass"
+		},
+		{
+			"seatRow":"2",
+			"seatNumber":"3",
+			"tailNumber":"cvc2",
+			"seatClass":"Economy"
+		},
+		{
+			"seatRow":"4",
+			"seatNumber":"4",
+			"tailNumber":"cvc2",
+			"seatClass":"FirstClass"
+		}
+	]	
+}

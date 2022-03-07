@@ -1,0 +1,26 @@
+{
+	"flights":[
+		{
+			"departureHour":"1899-12-30 17:00:00.000000",
+			"landingHour":"1899-12-30 19:00:00.000000",
+			"landingAirportID":"NRT",
+			"מזהה":"1",
+			"flightStatus":"delayed",
+			"taleID":"SFG74",
+			"departureDate":"2021-11-02 00:00:00.000000",
+			"departureAirportID":"ISL",
+			"landingDate":"2021-11-02 00:00:00.000000"
+		},
+		{
+			"departureHour":"1899-12-30 01:00:00.000000",
+			"landingHour":"1899-12-30 02:30:00.000000",
+			"landingAirportID":"kkk",
+			"מזהה":"2",
+			"flightStatus":"delayed",
+			"taleID":"kkk",
+			"departureDate":"2022-12-08 00:00:00.000000",
+			"departureAirportID":"eee",
+			"landingDate":"2022-12-08 00:00:00.000000"
+		}
+	]
+}

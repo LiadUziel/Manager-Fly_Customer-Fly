@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="830.0" style="-fx-background-color: #B0C4DE;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ProductsInFlights">
+   <children>
+      <Button layoutX="2.0" layoutY="3.0" mnemonicParsing="false" onAction="#switchTo_ProductsAndSupplierScreen" text="Back">
+         <graphic>
+            <ImageView fitHeight="30.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TableView fx:id="flightTable" layoutX="14.0" layoutY="50.0" prefHeight="200.0" prefWidth="811.0">
+         <columns>
+            <TableColumn fx:id="flightNumberCol" prefWidth="163.0" text="Flight Number" />
+            <TableColumn fx:id="departureTimeCol" prefWidth="184.0" text="Departure Time" />
+            <TableColumn fx:id="departureAirportCol" prefWidth="120.0" text="Departure Airport" />
+            <TableColumn fx:id="landingTimeCol" prefWidth="139.0" text="Landing Time" />
+            <TableColumn fx:id="landingAirportCol" prefWidth="111.0" text="Landing Airport" />
+            <TableColumn fx:id="flightStatusCol" prefWidth="93.0" text="Flight Status" />
+         </columns>
+      </TableView>
+      <Label layoutX="15.0" layoutY="266.0" text="Choose flight for her products:" />
+      <ComboBox fx:id="chooseFlight" layoutX="192.0" layoutY="260.0" onAction="#showProductsOfFlight" prefWidth="150.0" />
+      <AnchorPane fx:id="addProductPane" layoutX="547.0" layoutY="274.0" prefHeight="200.0" prefWidth="176.0">
+         <children>
+            <ComboBox fx:id="chooseProduct" layoutX="0.046875" layoutY="63.0" prefWidth="150.0" />
+            <Button layoutY="162.0" mnemonicParsing="false" onAction="#addProductToFlight" text="Add" />
+            <Label layoutX="0.046875" layoutY="35.0" text="Choose Product;" />
+            <Label layoutX="0.046875" text="Add New Product To This Flight" underline="true" />
+            <TextField layoutX="1.0" layoutY="118.0" prefHeight="41.0" prefWidth="153.0" />
+            <Label layoutX="5.0" layoutY="100.0" text="Feedback:" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="229.0" layoutY="8.0" text="Entertainment Products In Flights" underline="true">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <TableView fx:id="productOfFlightTable" layoutX="14.0" layoutY="295.0" prefHeight="200.0" prefWidth="489.0">
+        <columns>
+          <TableColumn fx:id="supplierIdCol" prefWidth="75.0" text="Supplier ID" />
+          <TableColumn fx:id="productIdCol" prefWidth="75.0" text="Product ID" />
+            <TableColumn fx:id="feedbackCol" prefWidth="338.0" text="Feedback" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

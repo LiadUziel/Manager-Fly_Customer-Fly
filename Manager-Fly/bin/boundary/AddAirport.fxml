@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="830.0" style="-fx-background-color: #B0C4DE;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.AddAirport">
+   <children>
+      <TextField fx:id="airportID_Txt" layoutX="425.0" layoutY="157.0" />
+      <TextField fx:id="country_Txt" layoutX="425.0" layoutY="200.0" />
+      <TextField fx:id="city_Txt" layoutX="425.0" layoutY="237.0" />
+      <Label layoutX="329.0" layoutY="158.0" text="Airport ID" />
+      <Label layoutX="329.0" layoutY="204.0" text="Country" />
+      <Label layoutX="329.0" layoutY="241.0" text="City" />
+      <Label layoutX="329.0" layoutY="274.0" text="TimeZone" />
+      <Button layoutX="500.0" layoutY="319.0" mnemonicParsing="false" onAction="#addAirport" text="Add Airport" />
+      <Button layoutX="33.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchTo_AddFlight" text="back to add flight" />
+      <Label layoutX="310.0" layoutY="39.0" text="Add new Airport">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
+      <ComboBox fx:id="plusMinus" layoutX="425.0" layoutY="279.0" prefHeight="25.0" prefWidth="61.0" />
+      <ComboBox fx:id="timeValue" layoutX="499.0" layoutY="279.0" prefHeight="25.0" prefWidth="79.0" />
+   </children>
+</AnchorPane>

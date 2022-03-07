@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ProductsReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="66e578cf-2f92-4c01-9bc8-5b0d33910185">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="340"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="650"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="CustomerFlyDB"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tbl_products_report.product, tbl_products_report.frequency
+FROM tbl_products_report;]]>
+	</queryString>
+	<field name="product" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="product"/>
+		<property name="com.jaspersoft.studio.field.label" value="product"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_products_report"/>
+	</field>
+	<field name="frequency" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="frequency"/>
+		<property name="com.jaspersoft.studio.field.label" value="frequency"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tbl_products_report"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="78" forecolor="#4E3D8F" uuid="4ea73824-e4c2-4954-a9d3-3d683b6402b3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="3.5" lineStyle="Dashed" lineColor="#322F40"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Products-Frequency Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="60">
+			<staticText>
+				<reportElement x="280" y="30" width="276" height="30" forecolor="#3595FC" uuid="87437b1a-e24a-4f4e-a7fa-19e01bdd1f68">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[Frequency]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="30" width="276" height="30" forecolor="#3595FC" uuid="faa07bed-69fe-46e9-b3fe-cbf5a04000b3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[Product]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="50">
+			<textField>
+				<reportElement x="2" y="0" width="278" height="30" uuid="cd8cf5c4-479b-437b-866e-44498adc66ec"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{product}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="277" height="30" uuid="7351d559-c48b-4b18-aed1-42f2132ba1f6"/>
+				<box>
+					<pen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{frequency}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="450" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<pieChart>
+				<chart evaluationTime="Report">
+					<reportElement x="20" y="20" width="517" height="370" uuid="995dedf8-2a0c-4873-ad27-e2002097ef62"/>
+					<box>
+						<pen lineWidth="1.25" lineColor="#D14745"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset resetType="Report"/>
+					<keyExpression><![CDATA[$F{product}]]></keyExpression>
+					<valueExpression><![CDATA[$F{frequency}]]></valueExpression>
+					<labelExpression><![CDATA[$F{product}]]></labelExpression>
+				</pieDataset>
+				<piePlot>
+					<plot/>
+					<itemLabel/>
+				</piePlot>
+			</pieChart>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BigFlightsReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="24a6f646-10cd-4be1-8000-1ad27511193c">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB_ManagerFly"/>
+	<parameter name="start" class="java.sql.Date"/>
+	<parameter name="end" class="java.sql.Date"/>
+	<parameter name="seatsEconomyOfBigFlight" class="java.lang.Integer"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tbl_flight.flightID, tbl_flight.departureAirportID, tbl_flight.departureDate, tbl_flight.departureHour, tbl_flight.landingAirportID, tbl_flight.landingDate, tbl_flight.landingHour, tbl_flight.flightStatus, tbl_airport.country, tbl_airport.city, tbl_airport_1.country, tbl_airport_1.city
+FROM tbl_plane INNER JOIN (tbl_airport INNER JOIN (tbl_flight INNER JOIN tbl_airport AS tbl_airport_1 ON tbl_flight.landingAirportID = tbl_airport_1.airportID) ON tbl_airport.airportID = tbl_flight.departureAirportID) ON tbl_plane.taleID = tbl_flight.taleID
+WHERE (((tbl_plane.seatsInEconomy)>$P{seatsEconomyOfBigFlight}) AND tbl_flight.landingDate>=$P{start} AND tbl_flight.landingDate<=$P{end})
+GROUP BY tbl_airport_1.country, tbl_airport_1.city, tbl_flight.landingDate, tbl_flight.landingHour, tbl_flight.landingAirportID, tbl_airport.country, tbl_airport.city, tbl_flight.departureAirportID, tbl_flight.departureDate, tbl_flight.departureHour, tbl_flight.flightID, tbl_flight.flightStatus
+ORDER BY tbl_flight.landingDate DESC;]]>
+	</queryString>
+	<field name="FLIGHTID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FLIGHTID"/>
+		<property name="com.jaspersoft.studio.field.label" value="FLIGHTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="DEPARTUREAIRPORTID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DEPARTUREAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.label" value="DEPARTUREAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="DEPARTUREDATE" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="DEPARTUREDATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="DEPARTUREDATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="DEPARTUREHOUR" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="DEPARTUREHOUR"/>
+		<property name="com.jaspersoft.studio.field.label" value="DEPARTUREHOUR"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="LANDINGAIRPORTID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LANDINGAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.label" value="LANDINGAIRPORTID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="LANDINGDATE" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="LANDINGDATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="LANDINGDATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="LANDINGHOUR" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="LANDINGHOUR"/>
+		<property name="com.jaspersoft.studio.field.label" value="LANDINGHOUR"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="FLIGHTSTATUS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FLIGHTSTATUS"/>
+		<property name="com.jaspersoft.studio.field.label" value="FLIGHTSTATUS"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="COUNTRY" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="COUNTRY"/>
+		<property name="com.jaspersoft.studio.field.label" value="COUNTRY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="CITY" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CITY"/>
+		<property name="com.jaspersoft.studio.field.label" value="CITY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="COLUMN_11" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="COUNTRY"/>
+		<property name="com.jaspersoft.studio.field.label" value="COUNTRY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="COLUMN_12" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CITY"/>
+		<property name="com.jaspersoft.studio.field.label" value="CITY"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="0" width="490" height="70" forecolor="#749BC2" uuid="0ec20c25-01c3-4c5d-b527-398617991e31">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e286a157-73de-49d8-911c-7285d2e12d9c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="40" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Big Flights Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="-20" y="0" width="49" height="30" uuid="59c442a1-cef2-41df-9538-793c6d29d057">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a67d231-3bad-4aec-81e2-485e0ee722a4"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[FLIGHT ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="0" width="60" height="30" uuid="5dacac31-e778-4b40-87e0-eb95e85c83f4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="00a96e78-1d6b-4b1e-acbe-6d04ed3266a9"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[DEP AIRPORT ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="46" height="30" uuid="849f34ce-6c7d-479d-ac48-134a8a98337e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f29f99a7-9dae-4baa-aa6a-1ed9a0ac5785"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[DEP DATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="0" width="50" height="30" uuid="7c24c549-86bb-43bf-88ee-e2e902253827">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39845762-31c6-4565-af35-d781338b3927"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[DEP HOUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="60" height="30" uuid="0906d7aa-3c62-49eb-ac44-fe0303c460e6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a32faa15-87b0-4d13-8a42-bf5971f04098"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[LAND AIRPORT ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="248" y="0" width="46" height="30" uuid="cb67ba00-6047-44b9-8ef0-b5cde2ed3cbc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a980127-1af7-427e-9e62-7cfbbc7cdd02"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[LANDINGDATE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="0" width="46" height="30" uuid="b470a615-38f4-4a65-8d65-f5b7ae03e3d0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="591553a4-d57e-4a68-ba4d-872a3707e75f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[LANDINGHOUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="46" height="30" uuid="c490908d-82f6-45be-8688-0d5515e77d04">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e286a157-73de-49d8-911c-7285d2e12d9c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[FLIGHT STATUS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="0" width="46" height="30" uuid="aac9eaf8-e20c-4d3c-b215-b925582fac68">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf2e23bd-987a-43cf-8c68-83c3a0b2f8df"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[DEP COUNTRY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="0" width="46" height="30" uuid="b561a912-e48e-4f49-ae73-f927dd0abb9f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ef49d56-cc95-445a-9652-f843fffa5259"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[DEP CITY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="46" height="30" uuid="fb51b389-ac89-4594-848e-fe5488c62810">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dc500d45-996b-40b2-9993-7f084e1974f6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[LANDING COUNTRY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="529" y="0" width="46" height="30" uuid="6c7bb988-704e-443f-af01-44b2fc84cc28">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41e75c97-aabc-4114-a41c-c2de35526078"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.5"/>
+				</box>
+				<text><![CDATA[LANDING CITY]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="-20" y="0" width="49" height="30" uuid="6c52bf4f-2a80-4433-888d-b6a534522cce">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9a67d231-3bad-4aec-81e2-485e0ee722a4"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{FLIGHTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="30" y="0" width="60" height="30" uuid="8c5d7486-6a72-4393-b54f-bdb17361d759">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="00a96e78-1d6b-4b1e-acbe-6d04ed3266a9"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{DEPARTUREAIRPORTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="46" height="30" uuid="7c2ab721-7c24-4fde-92f3-f2c95e008888">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f29f99a7-9dae-4baa-aa6a-1ed9a0ac5785"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{DEPARTUREDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="0" width="50" height="30" uuid="05a79ca1-81c6-4b9a-8d6c-721e94c50954">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="39845762-31c6-4565-af35-d781338b3927"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{DEPARTUREHOUR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="0" width="60" height="30" uuid="dcec761b-0904-4ee7-8e6f-78388b7fe264">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a32faa15-87b0-4d13-8a42-bf5971f04098"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{LANDINGAIRPORTID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="248" y="0" width="46" height="30" uuid="d47f9cf8-8b92-4f93-8235-ac5c1a1f2d68">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2a980127-1af7-427e-9e62-7cfbbc7cdd02"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{LANDINGDATE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="46" height="30" uuid="b8ce53c8-0e73-4b80-8167-99063943b027">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="591553a4-d57e-4a68-ba4d-872a3707e75f"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{LANDINGHOUR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="46" height="30" uuid="dfc9849a-54fc-4271-b230-6d226c575069">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e286a157-73de-49d8-911c-7285d2e12d9c"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{FLIGHTSTATUS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="0" width="46" height="30" uuid="f329a686-d15f-4fc3-9065-bee446c4844e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="cf2e23bd-987a-43cf-8c68-83c3a0b2f8df"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{COUNTRY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="46" height="30" uuid="cfb17dbc-3014-458f-8882-d5c1281aecdc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ef49d56-cc95-445a-9652-f843fffa5259"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{CITY}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="50" height="30" uuid="4b76d46d-753b-4a33-b8d4-55249c4ba27a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="dc500d45-996b-40b2-9993-7f084e1974f6"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{COLUMN_11}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="0" width="46" height="30" uuid="351a0934-8434-4a75-8247-85a69f77d404">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="41e75c97-aabc-4114-a41c-c2de35526078"/>
+				</reportElement>
+				<box>
+					<pen lineWidth="1.75" lineColor="#9BA7C9"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{COLUMN_12}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

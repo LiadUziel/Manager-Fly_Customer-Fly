@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="830.0" style="-fx-background-color: #B0C4DE;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ShibuzFlightEmplyees">
+   <children>
+      <TableView fx:id="flightAttendantsTable" layoutX="7.0" layoutY="62.0" prefHeight="200.0" prefWidth="430.0">
+        <columns>
+          <TableColumn fx:id="attendantIdCol" prefWidth="75.0" text="Employee ID" />
+          <TableColumn fx:id="attendantFirstNameCol" prefWidth="75.0" text="First Name" />
+            <TableColumn fx:id="attendantLastNameCol" prefWidth="75.0" text="Last Name" />
+            <TableColumn fx:id="attendantStartWorkDateCol" prefWidth="100.00001525878906" text="Start Work Date" />
+            <TableColumn fx:id="attendantEndWorkDateCol" prefWidth="101.99993896484375" text="End Work Date" />
+        </columns>
+      </TableView>
+      <Button layoutX="9.0" layoutY="5.0" mnemonicParsing="false" onAction="#switchTo_EmployeesManagerScreen" text="Back">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="7.0" layoutY="45.0" text="Flight Attendants" />
+      <Label layoutX="9.0" layoutY="270.0" text="Pilots" />
+      <TableView fx:id="pilotsTable" layoutX="9.0" layoutY="287.0" prefHeight="200.0" prefWidth="609.0">
+         <columns>
+            <TableColumn fx:id="pilotIdCol" prefWidth="75.0" text="Employee ID" />
+            <TableColumn fx:id="pilotFirstNameCol" prefWidth="67.99996185302734" text="First Name" />
+            <TableColumn fx:id="pilotLastNameCol" prefWidth="66.00003051757812" text="Last Name" />
+            <TableColumn fx:id="pilotStartWorkDateCol" prefWidth="98.00001525878906" text="Start Work Date" />
+            <TableColumn fx:id="pilotEndWorkDateCol" prefWidth="90.0" text="End Work Date" />
+            <TableColumn fx:id="pilotLicenceNumberCol" prefWidth="99.333251953125" text="Licence Number" />
+            <TableColumn fx:id="pilotLicenceIssueDateCol" prefWidth="110.00002034505212" text="Licence Issue Date" />
+         </columns>
+      </TableView>
+      <ComboBox fx:id="chooseFlight" layoutX="650.0" layoutY="56.0" onAction="#showCrewFlight" prefWidth="150.0" promptText="Choose flight:" />
+      <ListView fx:id="faInFlightList" layoutX="623.0" layoutY="110.0" prefHeight="169.0" prefWidth="187.0" />
+      <Label layoutX="623.0" layoutY="93.0" text="Flight Attendants in flight" />
+      <Label fx:id="chiefPilotLabel" layoutX="638.0" layoutY="296.0" text="chiefPilotLabel" />
+      <Label fx:id="coPilotLabel" layoutX="638.0" layoutY="371.0" text="coPilotLabel" />
+      <ComboBox fx:id="chooseFA4Adding" layoutX="440.0" layoutY="109.0" onAction="#addFAtoFlight" prefHeight="29.0" prefWidth="175.0" promptText="Choose Flight Attendant" />
+      <Button layoutX="456.0" layoutY="182.0" mnemonicParsing="false" onAction="#removeFAfromFlight" text="Remove" />
+      <Label layoutX="440.0" layoutY="161.0" text="For remove choose FA and press:" />
+      <ComboBox fx:id="chooseChiefPilot" layoutX="632.0" layoutY="312.0" onAction="#changeChiefPilot" prefHeight="29.0" prefWidth="166.0" promptText="Change chief pilot" />
+      <ComboBox fx:id="chooseCoPilot" layoutX="634.0" layoutY="387.0" onAction="#changeCoPilot" prefHeight="29.0" prefWidth="166.0" promptText="Change co pilot" />
+      <Label layoutX="442.0" layoutY="85.0" text="Choose FA for adding:" />
+      <Label layoutX="222.0" layoutY="14.0" text="Shibutz Employees For Flight" underline="true">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

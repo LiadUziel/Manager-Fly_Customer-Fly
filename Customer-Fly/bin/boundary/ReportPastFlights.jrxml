@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportPastFlights" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36a4a751-037f-4dde-81de-292f12c8d5be">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DB_CustomerFly"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="217"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="773"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tbl_customer.passportNumber,Count(*) as Morning
+FROM ((tbl_order INNER JOIN (tbl_customer INNER JOIN tbl_customer_order ON tbl_customer.passportNumber = tbl_customer_order.passportNumber) ON tbl_order.orderId = tbl_customer_order.orderId) INNER JOIN (tbl_flight INNER JOIN tbl_order_flight ON tbl_flight.flightNumber = tbl_order_flight.flightNumber) ON tbl_order.orderId = tbl_order_flight.orderId)
+WHERE Hour([tbl_flight].[departureDate]) >= 5 And Hour([tbl_flight].[departureDate])<=11 Or Hour([tbl_flight].[departureDate]) >=11 And Hour([tbl_flight].[departureDate])<=16 Or Hour([tbl_flight].[departureDate]) >= 17 And Hour([tbl_flight].[departureDate])<=22 Or Hour([tbl_flight].[departureDate]) >= 23 Or Hour([tbl_flight].[departureDate]) <=4 
+GROUP BY tbl_customer.passportNumber;
+
+union
+
+SELECT tbl_customer.passportNumber,Count(*) as Morning
+FROM (tbl_order INNER JOIN (tbl_customer INNER JOIN tbl_customer_order ON tbl_customer.passportNumber = tbl_customer_order.passportNumber) ON tbl_order.orderId = tbl_customer_order.orderId) INNER JOIN (tbl_flight INNER JOIN tbl_order_flight ON tbl_flight.flightNumber = tbl_order_flight.flightNumber) ON tbl_order.orderId = tbl_order_flight.orderId
+WHERE Hour([tbl_flight].[departureDate]) >=11 And Hour([tbl_flight].[departureDate])<=16
+GROUP BY tbl_customer.passportNumber;
+
+union
+
+SELECT tbl_customer.passportNumber,Count(*) as Morning
+FROM (tbl_order INNER JOIN (tbl_customer INNER JOIN tbl_customer_order ON tbl_customer.passportNumber = tbl_customer_order.passportNumber) ON tbl_order.orderId = tbl_customer_order.orderId) INNER JOIN (tbl_flight INNER JOIN tbl_order_flight ON tbl_flight.flightNumber = tbl_order_flight.flightNumber) ON tbl_order.orderId = tbl_order_flight.orderId
+WHERE Hour([tbl_flight].[departureDate]) >= 17 And Hour([tbl_flight].[departureDate])<=22
+GROUP BY tbl_customer.passportNumber;
+
+union
+
+SELECT tbl_customer.passportNumber,Count(*) as Morning
+FROM (tbl_order INNER JOIN (tbl_customer INNER JOIN tbl_customer_order ON tbl_customer.passportNumber = tbl_customer_order.passportNumber) ON tbl_order.orderId = tbl_customer_order.orderId) INNER JOIN (tbl_flight INNER JOIN tbl_order_flight ON tbl_flight.flightNumber = tbl_order_flight.flightNumber) ON tbl_order.orderId = tbl_order_flight.orderId
+WHERE Hour([tbl_flight].[departureDate]) >= 23 Or Hour([tbl_flight].[departureDate]) <=4 
+GROUP BY tbl_customer.passportNumber;]]>
+	</queryString>
+	<field name="PASSPORTNUMBER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="PASSPORTNUMBER"/>
+		<property name="com.jaspersoft.studio.field.label" value="PASSPORTNUMBER"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="SYSTEM_SUBQUERY"/>
+	</field>
+	<field name="Morning" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="MORNING"/>
+		<property name="com.jaspersoft.studio.field.label" value="Morning"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="560" height="78" forecolor="#4E3D8F" uuid="1f4e6370-f969-40a2-afb3-a274e0575ab5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="3.5" lineStyle="Dashed" lineColor="#322F40"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report: Previous flights of customers]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="140" height="30" forecolor="#3595FC" uuid="097260f3-8888-4d80-bb6e-6a53d880c560">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5920d92b-6938-4b2e-8820-075ab9b00fdc"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[PASSPORT NUMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="138" height="30" forecolor="#3595FC" uuid="5f46156e-6170-45cd-beb3-aaa5ed7340e8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[Morning]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="30" forecolor="#3595FC" uuid="d9650866-b6f8-4c9f-858b-3bae43d51144">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[Noon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="30" forecolor="#3595FC" uuid="994ae5a8-4a57-44ed-9f31-355f86a2b62e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[Evening]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="94" height="30" forecolor="#3595FC" uuid="29b6d4ab-ad74-40fd-a904-e36baaff3ec3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<box leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="2.5"/>
+				</box>
+				<text><![CDATA[Night]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="140" height="30" uuid="06d9f030-bb94-4188-959b-8e594fc52ea0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5920d92b-6938-4b2e-8820-075ab9b00fdc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{PASSPORTNUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="138" height="30" uuid="b54c76af-b6fd-48b3-bed0-0ecf9e7e6c1c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{Morning}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="-1" width="100" height="30" uuid="ed8991c0-b657-474c-865e-26ef9901d496">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="380" y="0" width="100" height="30" uuid="70fee9c7-9d0f-48d5-adcc-fd17270254c4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="480" y="0" width="100" height="30" uuid="8635945b-07f0-4dc1-93bd-99a96b23c5e4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="84ce46d2-9c59-43eb-8827-48168287045c"/>
+				</reportElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

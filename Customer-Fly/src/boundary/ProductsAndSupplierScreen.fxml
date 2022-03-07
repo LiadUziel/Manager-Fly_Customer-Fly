@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #B0C4DE;" stylesheets="@../application/application.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="boundary.ProductsAndSupplierScreen">
+   <children>
+      <TableView fx:id="productsTable" layoutX="48.0" layoutY="56.0" prefHeight="255.0" prefWidth="381.0">
+         <columns>
+            <TableColumn fx:id="productIDCol" prefWidth="94.0" text="Product ID" />
+            <TableColumn fx:id="typeCol" prefWidth="56.0" text="Type" />
+            <TableColumn fx:id="productNameCol" prefWidth="100.0" text="Prdouct Name" />
+            <TableColumn fx:id="descriptionCol" prefWidth="130.0" text="Product Description" />
+         </columns>
+      </TableView>
+      <Button layoutX="14.0" layoutY="8.0" mnemonicParsing="false" onAction="#switchTo_Login" text="Logout">
+         <graphic>
+            <ImageView fitHeight="32.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logout.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TableView fx:id="suppliersTable" layoutX="476.0" layoutY="56.0" prefHeight="255.0" prefWidth="381.0">
+         <columns>
+            <TableColumn fx:id="supplierIdCol" prefWidth="94.0" text="Supplier ID" />
+            <TableColumn fx:id="supplierNameCol" prefWidth="93.0" text="Supplier Name" />
+            <TableColumn fx:id="phoneCol" prefWidth="95.0" text="Phone Number" />
+            <TableColumn fx:id="mailCol" prefWidth="98.0" text="Email" />
+         </columns>
+      </TableView>
+      <Button layoutX="485.0" layoutY="322.0" mnemonicParsing="false" onAction="#showSupplierPane" text="Add Supplier" />
+      <AnchorPane fx:id="supplierPane" layoutX="485.0" layoutY="361.0">
+         <children>
+            <Label layoutY="4.0" text="Supplier ID:" />
+            <TextField fx:id="supplierIdTxt" layoutX="87.0" />
+            <Label layoutY="40.0" text="Supplier Name:" />
+            <TextField fx:id="supploerNameTxt" layoutX="87.0" layoutY="36.0" />
+            <Label layoutY="71.0" text="Phone:" />
+            <TextField fx:id="supploerPhoneTxt" layoutX="87.0" layoutY="67.0" />
+            <Label layoutY="103.0" text="Mail:" />
+            <TextField fx:id="supplierMailTxt" layoutX="87.0" layoutY="99.0" />
+            <Button layoutX="260.0" layoutY="99.0" mnemonicParsing="false" onAction="#submitAddSupplier" text="Submit Add" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="58.0" layoutY="322.0" mnemonicParsing="false" onAction="#showProductPane" text="Add Entertainment Product" />
+      <AnchorPane fx:id="productsPane" layoutX="58.0" layoutY="361.0">
+         <children>
+            <Label layoutY="4.0" text="Product ID:" />
+            <TextField fx:id="productIdTxt" layoutX="87.0" />
+            <Label layoutY="40.0" text="Type:" />
+            <Label layoutY="71.0" text="Product Name:" />
+            <TextField fx:id="productNameTxt" layoutX="87.0" layoutY="67.0" />
+            <Label layoutY="103.0" text="Description:" />
+            <TextField fx:id="productDescTxt" layoutX="87.0" layoutY="99.0" />
+            <Button layoutX="260.0" layoutY="99.0" mnemonicParsing="false" onAction="#submitAddProduct" text="Submit Add" />
+            <ComboBox fx:id="productTypeChoose" layoutX="45.0" layoutY="30.0" prefHeight="29.0" prefWidth="85.0" />
+            <Label layoutX="164.0" layoutY="37.0" text="Supplier:" />
+            <ComboBox fx:id="supplierOfProductChoose" layoutX="218.0" layoutY="30.0" prefHeight="29.0" prefWidth="135.0" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="281.0" layoutY="13.0" text="Entertainment products &amp; suppliers" underline="true">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Button layoutX="125.0" layoutY="14.0" mnemonicParsing="false" onAction="#switchTo_ProductsInFlights" text="Products In Flights" />
+      <Button layoutX="721.0" layoutY="9.0" mnemonicParsing="false" onAction="#switchTo_ProductsReportScreen" text="Products Report">
+         <graphic>
+            <ImageView fitHeight="60.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/report.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

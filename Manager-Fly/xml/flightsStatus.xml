@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<FlightStatusXML>
+	<FlightsStatus ID="0">
+		<flightID>
+			AS12
+		</flightID>
+		<status>
+			delayed
+		</status>
+	</FlightsStatus>
+	<FlightsStatus ID="1">
+		<flightID>
+			tttt
+		</flightID>
+		<status>
+			delayed
+		</status>
+	</FlightsStatus>
+</FlightStatusXML>
